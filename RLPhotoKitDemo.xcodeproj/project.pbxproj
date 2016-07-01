@@ -13,6 +13,10 @@
 		ED4A82C41D2616E400B14886 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4A82C21D2616E400B14886 /* Main.storyboard */; };
 		ED4A82C61D2616E400B14886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED4A82C51D2616E400B14886 /* Assets.xcassets */; };
 		ED4A82C91D2616E400B14886 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4A82C71D2616E400B14886 /* LaunchScreen.storyboard */; };
+		ED4A82D31D2617F400B14886 /* RLCommonAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4A82D21D2617F400B14886 /* RLCommonAsset.m */; };
+		ED4A82D61D261B7500B14886 /* RLAssetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4A82D51D261B7500B14886 /* RLAssetManager.m */; };
+		ED4A82DA1D26428800B14886 /* RLImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4A82D81D26428800B14886 /* RLImageCollectionViewCell.m */; };
+		ED4A82DB1D26428800B14886 /* RLImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4A82D91D26428800B14886 /* RLImageCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,13 @@
 		ED4A82C51D2616E400B14886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED4A82C81D2616E400B14886 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED4A82CA1D2616E400B14886 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED4A82D11D2617F400B14886 /* RLCommonAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLCommonAsset.h; sourceTree = "<group>"; };
+		ED4A82D21D2617F400B14886 /* RLCommonAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLCommonAsset.m; sourceTree = "<group>"; };
+		ED4A82D41D261B7500B14886 /* RLAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLAssetManager.h; sourceTree = "<group>"; };
+		ED4A82D51D261B7500B14886 /* RLAssetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLAssetManager.m; sourceTree = "<group>"; };
+		ED4A82D71D26428800B14886 /* RLImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLImageCollectionViewCell.h; sourceTree = "<group>"; };
+		ED4A82D81D26428800B14886 /* RLImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLImageCollectionViewCell.m; sourceTree = "<group>"; };
+		ED4A82D91D26428800B14886 /* RLImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLImageCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +69,9 @@
 		ED4A82B81D2616E400B14886 /* RLPhotoKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				ED4A82D11D2617F400B14886 /* RLCommonAsset.h */,
+				ED4A82D21D2617F400B14886 /* RLCommonAsset.m */,
+				ED4A82D01D2617DF00B14886 /* assetManager */,
 				ED4A82BC1D2616E400B14886 /* AppDelegate.h */,
 				ED4A82BD1D2616E400B14886 /* AppDelegate.m */,
 				ED4A82BF1D2616E400B14886 /* ViewController.h */,
@@ -67,6 +81,9 @@
 				ED4A82C71D2616E400B14886 /* LaunchScreen.storyboard */,
 				ED4A82CA1D2616E400B14886 /* Info.plist */,
 				ED4A82B91D2616E400B14886 /* Supporting Files */,
+				ED4A82D71D26428800B14886 /* RLImageCollectionViewCell.h */,
+				ED4A82D81D26428800B14886 /* RLImageCollectionViewCell.m */,
+				ED4A82D91D26428800B14886 /* RLImageCollectionViewCell.xib */,
 			);
 			path = RLPhotoKitDemo;
 			sourceTree = "<group>";
@@ -77,6 +94,15 @@
 				ED4A82BA1D2616E400B14886 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ED4A82D01D2617DF00B14886 /* assetManager */ = {
+			isa = PBXGroup;
+			children = (
+				ED4A82D41D261B7500B14886 /* RLAssetManager.h */,
+				ED4A82D51D261B7500B14886 /* RLAssetManager.m */,
+			);
+			name = assetManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +164,7 @@
 			files = (
 				ED4A82C91D2616E400B14886 /* LaunchScreen.storyboard in Resources */,
 				ED4A82C61D2616E400B14886 /* Assets.xcassets in Resources */,
+				ED4A82DB1D26428800B14886 /* RLImageCollectionViewCell.xib in Resources */,
 				ED4A82C41D2616E400B14886 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,8 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED4A82DA1D26428800B14886 /* RLImageCollectionViewCell.m in Sources */,
 				ED4A82C11D2616E400B14886 /* ViewController.m in Sources */,
 				ED4A82BE1D2616E400B14886 /* AppDelegate.m in Sources */,
+				ED4A82D31D2617F400B14886 /* RLCommonAsset.m in Sources */,
+				ED4A82D61D261B7500B14886 /* RLAssetManager.m in Sources */,
 				ED4A82BB1D2616E400B14886 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,10 +293,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: wenjie lu (MGB3JZ7BR8)";
 				INFOPLIST_FILE = RLPhotoKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GG.RLPhotoKitDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = hk.ganguo.photokitdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6e61edc4-b83e-4bf5-b458-5d88d60d5e06";
 			};
 			name = Debug;
 		};
@@ -274,10 +306,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: wenjie lu (MGB3JZ7BR8)";
 				INFOPLIST_FILE = RLPhotoKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GG.RLPhotoKitDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = hk.ganguo.photokitdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6e61edc4-b83e-4bf5-b458-5d88d60d5e06";
 			};
 			name = Release;
 		};
@@ -300,6 +334,7 @@
 				ED4A82CF1D2616E400B14886 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
