@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "TPPhotoPickerViewController.h"
+#import "RLCommonAsset.h"
 
 extern const NSString *kNotificationReloadPreReleaseImages;
 
@@ -17,17 +17,12 @@ extern const NSString *kNotificationReloadPreReleaseImages;
 
 @end
 
-@interface TPPhotoPreviewViewController : UIViewController
+@interface TPPhotoPreviewViewController : UICollectionViewController
 /**
  *  可以存放Asset、URL、UIImage
  */
-@property (nonatomic, strong) NSMutableArray *assetsArray;
+@property (nonatomic, strong) NSArray<RLCommonAsset *> *assetsArray;
 
 @property (nonatomic, strong) NSIndexPath *currentIndexPath;
-//@property (weak, nonatomic) id<TPPhotoPickerViewControllerDelegate> photoDelegate;
 @property (weak, nonatomic) id<TPPhotoPreviewCollectionViewDelegate> photoCollectionViewDelegate;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
-@property (assign, nonatomic) BOOL showDeleteButton;
-
 @end

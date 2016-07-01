@@ -7,25 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AssetsLibrary/AssetsLibrary.h>
-
-@protocol TPPhotoPreviewCollectionViewCellDelegate <NSObject>
-
-@optional
-
-- (void)didReceiveSingleTap;
-
-@end
+#import "RLCommonAsset.h"
 
 @interface TPPhotoPreviewCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, weak) id<TPPhotoPreviewCollectionViewCellDelegate> delegate;
-
-@property (nonatomic, strong) ALAsset *asset;
-
-@property (nonatomic, strong) UIImage *previewImage;
-
-@property (strong, nonatomic) NSString *photoURL;
+@property (nonatomic, strong) RLCommonAsset *commonAsset;
 
 /**
  *  变回原来的状态

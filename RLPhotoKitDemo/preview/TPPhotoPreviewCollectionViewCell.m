@@ -46,10 +46,10 @@ static const CGFloat kTPMaxImageScale = 2.5f;
     [self addGestureRecognizer];
 }
 
-- (void)setAsset:(ALAsset *)asset {
+- (void)setCommonAsset:(RLCommonAsset *)commonAsset{
     self.scrollView.delegate = self;
-    if (_asset != asset) {
-        _asset = asset;
+    if (_commonAsset != commonAsset) {
+        _commonAsset = commonAsset;
         if (!self.imageView) {
             self.imageView = [[UIImageView alloc]init];
             self.imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -58,80 +58,22 @@ static const CGFloat kTPMaxImageScale = 2.5f;
         }
         self.imageView.image = nil;
         [self.indicatorView startAnimating];
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            UIImage *originalImage = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.imageView.image = originalImage;
-                self.imageView.bounds = [self boundsFromImageDimensions:_asset.defaultRepresentation.dimensions];
-                [self centerScrollViewContents];
-                [self.indicatorView stopAnimating];
-            });
-        });
+        WEAK_SELF
+        [_commonAsset requestPreviewImageWithCompletion:^(UIImage *image, NSDictionary *info) {
+            weakSelf.imageView.image = image;
+            weakSelf.imageView.bounds = [weakSelf boundsFromImageDimensions:image.size];
+            [weakSelf centerScrollViewContents];
+            [weakSelf.indicatorView stopAnimating];
+        } withProgressHandler:^(double progress, NSError * _Nullable error, BOOL * _Nonnull stop, NSDictionary * _Nullable info) {
+        }];
     }
-}
-
-- (void)setPhotoURL:(NSString *)photoURL{
-    self.scrollView.delegate = self;
-    _photoURL = photoURL;
-    if (!self.imageView) {
-        self.imageView = [[UIImageView alloc]init];
-        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [self.scrollView addSubview:self.imageView];
-    }
-    self.imageView.image = nil;
-    [self.indicatorView startAnimating];
-    
-//    
-//    
-//    if ([[YYImageCache sharedCache]getImageForKey:photoURL withType:YYImageCacheTypeMemory]) {
-//        UIImage *imageCache = [[YYImageCache sharedCache]getImageForKey:photoURL withType:YYImageCacheTypeMemory];
-//        self.imageView.image = imageCache;
-//        self.imageView.bounds = [self boundsFromImageDimensions:imageCache.size];
-//        [self centerScrollViewContents];
-//        [self.indicatorView stopAnimating];
-//    }else{
-//        __weak __typeof(&*self)weakSelf = self;
-//        [self.imageView setImageWithURL:[NSURL URLWithString:photoURL] placeholder:nil options:YYWebImageOptionShowNetworkActivity completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-//            weakSelf.imageView.bounds = [weakSelf boundsFromImageDimensions:image.size];
-//            [weakSelf centerScrollViewContents];
-//            [weakSelf.indicatorView stopAnimating];
-//        }];
-//    }
-}
-
-- (void)setPreviewImage:(UIImage *)previewImage{
-    self.scrollView.delegate = self;
-    _previewImage = previewImage;
-    if (!self.imageView) {
-        self.imageView = [[UIImageView alloc]init];
-        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [self.scrollView addSubview:self.imageView];
-    }
-    self.imageView.image = nil;
-    self.imageView.image = previewImage;
-    self.imageView.bounds = [self boundsFromImageDimensions:previewImage.size];
-    [self centerScrollViewContents];
 }
 
 - (void)addGestureRecognizer {
-    UITapGestureRecognizer *singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSingleTap:)];
-    singleTapRecognizer.numberOfTapsRequired = 1;
-    singleTapRecognizer.numberOfTouchesRequired = 1;
-    [self addGestureRecognizer:singleTapRecognizer];
-    
     UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didDobleTap:)];
     doubleTapRecognizer.numberOfTapsRequired = 2;
     doubleTapRecognizer.numberOfTouchesRequired = 1;
     [self addGestureRecognizer:doubleTapRecognizer];
-    [singleTapRecognizer requireGestureRecognizerToFail:doubleTapRecognizer];
-
-}
-
-#pragma mark - Zoom in or Zoom out
-- (void)didSingleTap:(UITapGestureRecognizer*)recognizer {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didReceiveSingleTap)]) {
-        [self.delegate didReceiveSingleTap];
-    }
 }
 
 - (void)didDobleTap:(UITapGestureRecognizer*)recognizer {
@@ -173,7 +115,6 @@ static const CGFloat kTPMaxImageScale = 2.5f;
 }
 
 - (void) zoomInZoomOut:(CGPoint)point {
-    // Check if current Zoom Scale is greater than half of max scale then reduce zoom and vice versa
     CGFloat newZoomScale = self.scrollView.zoomScale > (self.scrollView.maximumZoomScale / 2) ? self.scrollView.minimumZoomScale : self.scrollView.maximumZoomScale;
     
     CGSize scrollViewSize = self.scrollView.bounds.size;
@@ -203,9 +144,6 @@ static const CGFloat kTPMaxImageScale = 2.5f;
     CGFloat finalWidth = maxSize.width;
     
     CGFloat finalHeight = originalHeight / widthScale;
-//    if (finalHeight > maxSize.height) {
-//        finalHeight = maxSize.height;
-//    }
     
     if (originalHeight == 0 || originalWidth == 0) {
         return CGSizeZero;

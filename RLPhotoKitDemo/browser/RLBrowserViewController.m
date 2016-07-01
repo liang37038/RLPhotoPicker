@@ -8,6 +8,7 @@
 
 #import "RLBrowserViewController.h"
 #import "RLImageCollectionViewCell.h"
+#import "TPPhotoPreviewViewController.h"
 #import "RLAssetManager.h"
 
 static CGSize AssetGridThumbnailSize;
@@ -47,6 +48,13 @@ static CGSize AssetGridThumbnailSize;
 }
 
 #pragma mark - UICollectionView Delegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    TPPhotoPreviewViewController *previewViewController = [[TPPhotoPreviewViewController alloc]initWithNibName:NSStringFromClass([TPPhotoPreviewViewController class]) bundle:[NSBundle mainBundle]];
+    previewViewController.assetsArray = self.assetsDatasource;
+    previewViewController.currentIndexPath = indexPath;
+    [self.navigationController pushViewController:previewViewController animated:YES];
+}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     RLImageCollectionViewCell *thumbCell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([RLImageCollectionViewCell class]) forIndexPath:indexPath];

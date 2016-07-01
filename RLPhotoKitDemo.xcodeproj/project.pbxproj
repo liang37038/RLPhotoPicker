@@ -20,7 +20,7 @@
 		ED4A82F51D26657500B14886 /* TPPhotoPreviewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4A82EB1D26657500B14886 /* TPPhotoPreviewCollectionViewCell.m */; };
 		ED4A82F61D26657500B14886 /* TPPhotoPreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4A82EC1D26657500B14886 /* TPPhotoPreviewCollectionViewCell.xib */; };
 		ED4A82F71D26657500B14886 /* TPPhotoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4A82EE1D26657500B14886 /* TPPhotoPreviewViewController.m */; };
-		ED4A82F81D26657500B14886 /* TPPhotoPreviewViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4A82EF1D26657500B14886 /* TPPhotoPreviewViewController.storyboard */; };
+		ED4A82FD1D267AB700B14886 /* TPPhotoPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4A82FB1D267AB700B14886 /* TPPhotoPreviewViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +46,7 @@
 		ED4A82EC1D26657500B14886 /* TPPhotoPreviewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPPhotoPreviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		ED4A82ED1D26657500B14886 /* TPPhotoPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPhotoPreviewViewController.h; sourceTree = "<group>"; };
 		ED4A82EE1D26657500B14886 /* TPPhotoPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPhotoPreviewViewController.m; sourceTree = "<group>"; };
-		ED4A82EF1D26657500B14886 /* TPPhotoPreviewViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TPPhotoPreviewViewController.storyboard; sourceTree = "<group>"; };
+		ED4A82FB1D267AB700B14886 /* TPPhotoPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPPhotoPreviewViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +140,7 @@
 				ED4A82EC1D26657500B14886 /* TPPhotoPreviewCollectionViewCell.xib */,
 				ED4A82ED1D26657500B14886 /* TPPhotoPreviewViewController.h */,
 				ED4A82EE1D26657500B14886 /* TPPhotoPreviewViewController.m */,
-				ED4A82EF1D26657500B14886 /* TPPhotoPreviewViewController.storyboard */,
+				ED4A82FB1D267AB700B14886 /* TPPhotoPreviewViewController.xib */,
 			);
 			path = preview;
 			sourceTree = "<group>";
@@ -202,10 +202,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED4A82FD1D267AB700B14886 /* TPPhotoPreviewViewController.xib in Resources */,
 				ED4A82C91D2616E400B14886 /* LaunchScreen.storyboard in Resources */,
 				ED4A82C61D2616E400B14886 /* Assets.xcassets in Resources */,
 				ED4A82F11D26657500B14886 /* RLImageCollectionViewCell.xib in Resources */,
-				ED4A82F81D26657500B14886 /* TPPhotoPreviewViewController.storyboard in Resources */,
 				ED4A82C41D2616E400B14886 /* Main.storyboard in Resources */,
 				ED4A82F61D26657500B14886 /* TPPhotoPreviewCollectionViewCell.xib in Resources */,
 			);
