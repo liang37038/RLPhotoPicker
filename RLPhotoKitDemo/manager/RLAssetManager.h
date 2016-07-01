@@ -7,16 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
-#import <AssetsLibrary/AssetsLibrary.h>
 #import "RLCommonAsset.h"
+
+typedef void(^PhotoAssetsCallback)(NSArray<RLCommonAsset *> *assets);
 
 @interface RLAssetManager : NSObject
 
 + (instancetype)shareInstance;
 
+- (ALAssetsLibrary *)shareLibrary;
+
 - (PHCachingImageManager *)shareManager;
 
-- (NSArray <RLCommonAsset *> *)allPhotoAssets;
+/**
+ *  获取 所有照片 下的所有图片
+ *
+ *  @param callback 结果回调
+ */
+- (void)fetchAllPhotoAssetswithCallback:(PhotoAssetsCallback)callback;
 
 @end

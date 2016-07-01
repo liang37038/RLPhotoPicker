@@ -1,12 +1,12 @@
 //
-//  ViewController.m
+//  RLBrowserViewController.m
 //  RLPhotoKitDemo
 //
 //  Created by Richard Liang on 16/7/1.
 //  Copyright © 2016年 lwj. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "RLBrowserViewController.h"
 #import "RLImageCollectionViewCell.h"
 #import "RLAssetManager.h"
 
@@ -15,16 +15,18 @@ static CGSize AssetGridThumbnailSize;
 #define ItemsNumberEachRow  4
 #define ItemSpacing         2
 
-@interface ViewController ()
+@interface RLBrowserViewController ()
 <
     UICollectionViewDataSource,
     UICollectionViewDelegateFlowLayout
 >
 @property (weak, nonatomic) IBOutlet UICollectionView *imagesCollectionView;
 
+@property (strong, nonatomic) NSArray <RLCommonAsset *>*assetsDatasource;
+
 @end
 
-@implementation ViewController
+@implementation RLBrowserViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +34,12 @@ static CGSize AssetGridThumbnailSize;
     self.imagesCollectionView.dataSource = self;
     [self.imagesCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([RLImageCollectionViewCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NSStringFromClass([RLImageCollectionViewCell class])];
     AssetGridThumbnailSize = CGSizeMake((SCREEN_WIDTH - (ItemsNumberEachRow - 1) * ItemSpacing)/ItemsNumberEachRow, (SCREEN_WIDTH - (ItemsNumberEachRow - 1) * ItemSpacing)/ItemsNumberEachRow);
+    
+    WEAK_SELF
+    [[RLAssetManager shareInstance]fetchAllPhotoAssetswithCallback:^(NSArray<RLCommonAsset *> *assets) {
+        weakSelf.assetsDatasource = assets;
+        [weakSelf.imagesCollectionView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,7 +50,7 @@ static CGSize AssetGridThumbnailSize;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     RLImageCollectionViewCell *thumbCell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([RLImageCollectionViewCell class]) forIndexPath:indexPath];
-    RLCommonAsset *commonAsset = [[[RLAssetManager shareInstance]allPhotoAssets]objectAtIndex:indexPath.row];
+    RLCommonAsset *commonAsset = [self.assetsDatasource objectAtIndex:indexPath.row];
     thumbCell.thumbImageView.image = [commonAsset thumbnailWithSize:AssetGridThumbnailSize];
     return thumbCell;
 }
@@ -52,7 +60,7 @@ static CGSize AssetGridThumbnailSize;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [[RLAssetManager shareInstance]allPhotoAssets].count;
+    return self.assetsDatasource.count;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{

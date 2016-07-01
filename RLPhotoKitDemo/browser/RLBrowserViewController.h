@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RLBrowserViewController.h
 //  RLPhotoKitDemo
 //
 //  Created by Richard Liang on 16/7/1.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface RLBrowserViewController : UIViewController
 
 
 @end

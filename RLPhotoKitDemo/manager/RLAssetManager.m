@@ -9,11 +9,8 @@
 #import "RLAssetManager.h"
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
-typedef void(^AssetsCallback)(NSArray *assets);
-
 @implementation RLAssetManager
 {
-    ALAssetsLibrary     *_alAssetsLibrary;
     NSArray             *_alAssetAllPhotos;
     PHFetchResult       *_phAssetAllPhotos;
     PHAssetCollection   *_allPhotosCollection;
@@ -34,12 +31,20 @@ typedef void(^AssetsCallback)(NSArray *assets);
     if (self = [super init]) {
         if (SYSTEM_VERSION_LESS_THAN(@"8.0")) {
             _usePhotoKit = NO;
-            _alAssetsLibrary = [[ALAssetsLibrary alloc]init];
         }else{
             _usePhotoKit = YES;
         }
     }
     return self;
+}
+
+- (ALAssetsLibrary *)shareLibrary{
+    static ALAssetsLibrary *_shareLibrary = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _shareLibrary = [[ALAssetsLibrary alloc]init];
+    });
+    return _shareLibrary;
 }
 
 - (PHCachingImageManager *)shareManager{
@@ -51,7 +56,7 @@ typedef void(^AssetsCallback)(NSArray *assets);
     return _cachingManager;
 }
 
-- (NSArray<RLCommonAsset *> *)allPhotoAssets{
+- (void)fetchAllPhotoAssetswithCallback:(PhotoAssetsCallback)callback{
     if (!_commonAssetsArray){
         NSMutableArray *commonAssetsArray = [NSMutableArray array];
         if (_usePhotoKit) {
@@ -60,20 +65,24 @@ typedef void(^AssetsCallback)(NSArray *assets);
                 RLCommonAsset *commonAsset = [[RLCommonAsset alloc]initWithPHAsset:phAsset];
                 [commonAssetsArray addObject:commonAsset];
             }
+            _commonAssetsArray = commonAssetsArray;
+            callback(_commonAssetsArray);
         }else{
             [self alAssetAllPhotosWithCallback:^(NSArray *alPhotoAssets) {
                 for (ALAsset *alAsset in alPhotoAssets){
                     RLCommonAsset *commonAsset = [[RLCommonAsset alloc]initWithALAsset:alAsset];
                     [commonAssetsArray addObject:commonAsset];
                 }
+                _commonAssetsArray = commonAssetsArray;
+                callback(_commonAssetsArray);
             }];
         }
-        _commonAssetsArray = commonAssetsArray;
+    }else{
+        callback(_commonAssetsArray);
     }
-    return _commonAssetsArray;
 }
 
-- (void)alAssetAllPhotosWithCallback:(AssetsCallback)callback{
+- (void)alAssetAllPhotosWithCallback:(PhotoAssetsCallback)callback{
     __block ALAssetsGroup *assetGroup;
     __block NSMutableArray *assetsArray = [NSMutableArray array];
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -101,7 +110,7 @@ typedef void(^AssetsCallback)(NSArray *assets);
             void (^assetGroupEnumberatorFailure)(NSError *) = ^(NSError *error) {
                 
             };
-            [_alAssetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll
+            [[[RLAssetManager shareInstance]shareLibrary] enumerateGroupsWithTypes:ALAssetsGroupAll
                                                                         usingBlock:assetGroupEnumerator
                                                                       failureBlock:assetGroupEnumberatorFailure];
         }

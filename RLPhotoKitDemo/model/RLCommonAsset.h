@@ -14,6 +14,7 @@
 #define ScreenScale     [[UIScreen mainScreen]scale]
 #define SCREEN_WIDTH    [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT   [UIScreen mainScreen].bounds.size.height
+#define WEAK_SELF       __weak __typeof(&*self)weakSelf = self;
 
 @interface RLCommonAsset : NSObject
 
