@@ -26,7 +26,6 @@ UIScrollViewDelegate
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self setupCollectionViewCell];
     [self.collectionView reloadData];
     self.isFirstTimeViewDidLayoutSubviews = YES;
@@ -34,6 +33,7 @@ UIScrollViewDelegate
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -43,6 +43,7 @@ UIScrollViewDelegate
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)viewDidLayoutSubviews {

@@ -65,6 +65,7 @@ static const CGFloat kTPMaxImageScale = 2.5f;
             [weakSelf centerScrollViewContents];
             [weakSelf.indicatorView stopAnimating];
         } withProgressHandler:^(double progress, NSError * _Nullable error, BOOL * _Nonnull stop, NSDictionary * _Nullable info) {
+
         }];
     }
 }

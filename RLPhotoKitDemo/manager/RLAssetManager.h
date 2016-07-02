@@ -9,6 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "RLCommonAsset.h"
 
+typedef NS_ENUM(NSInteger, RLAuthorizationStatus){
+    RLAuthorizationStatusAuthorized,
+    RLAuthorizationStatusDenied,
+    RLAuthorizationStatusNotDetermined
+};
+
+typedef void(^RLAuthorizationStatusResult)(RLAuthorizationStatus status);
+
 typedef void(^PhotoAssetsCallback)(NSArray<RLCommonAsset *> *assets);
 
 @interface RLAssetManager : NSObject
@@ -25,5 +33,12 @@ typedef void(^PhotoAssetsCallback)(NSArray<RLCommonAsset *> *assets);
  *  @param callback 结果回调
  */
 - (void)fetchAllPhotoAssetswithCallback:(PhotoAssetsCallback)callback;
+
+/**
+ *  尝试获取权限
+ *
+ *  @param status 权限
+ */
+- (void)requestAuthorization:(RLAuthorizationStatusResult)statusCallback;
 
 @end

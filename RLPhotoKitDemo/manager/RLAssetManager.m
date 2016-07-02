@@ -56,6 +56,43 @@
     return _cachingManager;
 }
 
+- (void)requestAuthorization:(RLAuthorizationStatusResult)statusCallback{
+    if (_usePhotoKit) {
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            switch (status) {
+                case PHAuthorizationStatusNotDetermined:
+                    statusCallback(RLAuthorizationStatusNotDetermined);
+                    break;
+                case PHAuthorizationStatusDenied:
+                    statusCallback(RLAuthorizationStatusDenied);
+                    break;
+                case PHAuthorizationStatusAuthorized:
+                    statusCallback(RLAuthorizationStatusAuthorized);
+                    break;
+                case PHAuthorizationStatusRestricted:
+                    statusCallback(RLAuthorizationStatusDenied);
+                    break;
+            }
+        }];
+    }else{
+        ALAuthorizationStatus status = [ALAssetsLibrary authorizationStatus];
+        switch (status) {
+            case ALAuthorizationStatusNotDetermined:
+                statusCallback(RLAuthorizationStatusNotDetermined);
+                break;
+            case ALAuthorizationStatusDenied:
+                statusCallback(RLAuthorizationStatusDenied);
+                break;
+            case ALAuthorizationStatusAuthorized:
+                statusCallback(RLAuthorizationStatusAuthorized);
+                break;
+            case ALAuthorizationStatusRestricted:
+                statusCallback(RLAuthorizationStatusDenied);
+                break;
+        }
+    }
+}
+
 - (void)fetchAllPhotoAssetswithCallback:(PhotoAssetsCallback)callback{
     if (!_commonAssetsArray){
         NSMutableArray *commonAssetsArray = [NSMutableArray array];
