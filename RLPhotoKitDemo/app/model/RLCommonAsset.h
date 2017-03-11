@@ -16,14 +16,31 @@
 #define SCREEN_HEIGHT   [UIScreen mainScreen].bounds.size.height
 #define WEAK_SELF       __weak __typeof(&*self)weakSelf = self;
 
+typedef NS_ENUM(NSInteger, AssetType) {
+    AssetTypeNone,
+    AssetTypeAsset,
+    AssetTypeURL,
+    AssetTypeImage
+};
+
 @interface RLCommonAsset : NSObject
 
-- (instancetype)initWithALAsset:(ALAsset *)alAsset;
+@property (assign, readonly) AssetType assetType;
 
-- (instancetype)initWithPHAsset:(PHAsset *)phAsset;
+@property (assign, readonly) id resource;
+
+/**
+ 初始化一个公共实体
+
+ @param resource resource可以是ALAsset，PHAsset，NSURL，UIImage
+ @return 返回RLCommentAsset
+ */
+- (instancetype)initWithResouce:(id)resource;
 
 /// Asset 的原图（包含系统相册“编辑”功能处理后的效果）
 - (UIImage *)originImage;
+
+- (NSURL *)imageURL;
 
 /**
  *  异步请求 Asset 的原图，包含了系统照片“编辑”功能处理后的效果（剪裁，旋转和滤镜等），可能会有网络请求

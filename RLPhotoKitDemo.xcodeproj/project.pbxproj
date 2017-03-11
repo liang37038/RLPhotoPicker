@@ -12,15 +12,17 @@
 		ED4A82C41D2616E400B14886 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4A82C21D2616E400B14886 /* Main.storyboard */; };
 		ED4A82C61D2616E400B14886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED4A82C51D2616E400B14886 /* Assets.xcassets */; };
 		ED4A82C91D2616E400B14886 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4A82C71D2616E400B14886 /* LaunchScreen.storyboard */; };
-		ED4A82F01D26657500B14886 /* RLImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4A82DF1D26657400B14886 /* RLImageCollectionViewCell.m */; };
-		ED4A82F11D26657500B14886 /* RLImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4A82E01D26657500B14886 /* RLImageCollectionViewCell.xib */; };
-		ED4A82F21D26657500B14886 /* RLBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4A82E21D26657500B14886 /* RLBrowserViewController.m */; };
-		ED4A82F31D26657500B14886 /* RLAssetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4A82E51D26657500B14886 /* RLAssetManager.m */; };
-		ED4A82F41D26657500B14886 /* RLCommonAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4A82E81D26657500B14886 /* RLCommonAsset.m */; };
-		ED4A82F51D26657500B14886 /* TPPhotoPreviewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4A82EB1D26657500B14886 /* TPPhotoPreviewCollectionViewCell.m */; };
-		ED4A82F61D26657500B14886 /* TPPhotoPreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4A82EC1D26657500B14886 /* TPPhotoPreviewCollectionViewCell.xib */; };
-		ED4A82F71D26657500B14886 /* TPPhotoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4A82EE1D26657500B14886 /* TPPhotoPreviewViewController.m */; };
-		ED4A82FD1D267AB700B14886 /* TPPhotoPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4A82FB1D267AB700B14886 /* TPPhotoPreviewViewController.xib */; };
+		EDCDAD241E73A06C00D6A598 /* RLAssetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCDAD131E73A06C00D6A598 /* RLAssetManager.m */; };
+		EDCDAD251E73A06C00D6A598 /* RLCommonAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCDAD151E73A06C00D6A598 /* RLCommonAsset.m */; };
+		EDCDAD261E73A06C00D6A598 /* RLAlbumListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCDAD181E73A06C00D6A598 /* RLAlbumListTableViewCell.m */; };
+		EDCDAD271E73A06C00D6A598 /* RLAlbumListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCDAD191E73A06C00D6A598 /* RLAlbumListTableViewCell.xib */; };
+		EDCDAD281E73A06C00D6A598 /* RLAlbumSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCDAD1B1E73A06C00D6A598 /* RLAlbumSelectionView.m */; };
+		EDCDAD291E73A06C00D6A598 /* RLAlbumSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCDAD1C1E73A06C00D6A598 /* RLAlbumSelectionView.xib */; };
+		EDCDAD2A1E73A06C00D6A598 /* RLAlbumsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCDAD1E1E73A06C00D6A598 /* RLAlbumsListView.m */; };
+		EDCDAD2B1E73A06C00D6A598 /* RLImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCDAD201E73A06C00D6A598 /* RLImageCollectionViewCell.m */; };
+		EDCDAD2C1E73A06C00D6A598 /* RLImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCDAD211E73A06C00D6A598 /* RLImageCollectionViewCell.xib */; };
+		EDCDAD3A1E73AA7800D6A598 /* RLPhotoPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCDAD371E73AA7800D6A598 /* RLPhotoPickerViewController.xib */; };
+		EDCDAD3B1E73AA7800D6A598 /* RLPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCDAD381E73AA7800D6A598 /* RLPhotoPickerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,21 +34,24 @@
 		ED4A82C51D2616E400B14886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED4A82C81D2616E400B14886 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED4A82CA1D2616E400B14886 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED4A82DE1D26657400B14886 /* RLImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLImageCollectionViewCell.h; sourceTree = "<group>"; };
-		ED4A82DF1D26657400B14886 /* RLImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLImageCollectionViewCell.m; sourceTree = "<group>"; };
-		ED4A82E01D26657500B14886 /* RLImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLImageCollectionViewCell.xib; sourceTree = "<group>"; };
-		ED4A82E11D26657500B14886 /* RLBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLBrowserViewController.h; sourceTree = "<group>"; };
-		ED4A82E21D26657500B14886 /* RLBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLBrowserViewController.m; sourceTree = "<group>"; };
-		ED4A82E41D26657500B14886 /* RLAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLAssetManager.h; sourceTree = "<group>"; };
-		ED4A82E51D26657500B14886 /* RLAssetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLAssetManager.m; sourceTree = "<group>"; };
-		ED4A82E71D26657500B14886 /* RLCommonAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLCommonAsset.h; sourceTree = "<group>"; };
-		ED4A82E81D26657500B14886 /* RLCommonAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLCommonAsset.m; sourceTree = "<group>"; };
-		ED4A82EA1D26657500B14886 /* TPPhotoPreviewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPhotoPreviewCollectionViewCell.h; sourceTree = "<group>"; };
-		ED4A82EB1D26657500B14886 /* TPPhotoPreviewCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPhotoPreviewCollectionViewCell.m; sourceTree = "<group>"; };
-		ED4A82EC1D26657500B14886 /* TPPhotoPreviewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPPhotoPreviewCollectionViewCell.xib; sourceTree = "<group>"; };
-		ED4A82ED1D26657500B14886 /* TPPhotoPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPhotoPreviewViewController.h; sourceTree = "<group>"; };
-		ED4A82EE1D26657500B14886 /* TPPhotoPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPhotoPreviewViewController.m; sourceTree = "<group>"; };
-		ED4A82FB1D267AB700B14886 /* TPPhotoPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPPhotoPreviewViewController.xib; sourceTree = "<group>"; };
+		EDCDAD121E73A06C00D6A598 /* RLAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLAssetManager.h; sourceTree = "<group>"; };
+		EDCDAD131E73A06C00D6A598 /* RLAssetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLAssetManager.m; sourceTree = "<group>"; };
+		EDCDAD141E73A06C00D6A598 /* RLCommonAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLCommonAsset.h; sourceTree = "<group>"; };
+		EDCDAD151E73A06C00D6A598 /* RLCommonAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLCommonAsset.m; sourceTree = "<group>"; };
+		EDCDAD171E73A06C00D6A598 /* RLAlbumListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLAlbumListTableViewCell.h; sourceTree = "<group>"; };
+		EDCDAD181E73A06C00D6A598 /* RLAlbumListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLAlbumListTableViewCell.m; sourceTree = "<group>"; };
+		EDCDAD191E73A06C00D6A598 /* RLAlbumListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLAlbumListTableViewCell.xib; sourceTree = "<group>"; };
+		EDCDAD1A1E73A06C00D6A598 /* RLAlbumSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLAlbumSelectionView.h; sourceTree = "<group>"; };
+		EDCDAD1B1E73A06C00D6A598 /* RLAlbumSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLAlbumSelectionView.m; sourceTree = "<group>"; };
+		EDCDAD1C1E73A06C00D6A598 /* RLAlbumSelectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLAlbumSelectionView.xib; sourceTree = "<group>"; };
+		EDCDAD1D1E73A06C00D6A598 /* RLAlbumsListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLAlbumsListView.h; sourceTree = "<group>"; };
+		EDCDAD1E1E73A06C00D6A598 /* RLAlbumsListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLAlbumsListView.m; sourceTree = "<group>"; };
+		EDCDAD1F1E73A06C00D6A598 /* RLImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLImageCollectionViewCell.h; sourceTree = "<group>"; };
+		EDCDAD201E73A06C00D6A598 /* RLImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLImageCollectionViewCell.m; sourceTree = "<group>"; };
+		EDCDAD211E73A06C00D6A598 /* RLImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		EDCDAD371E73AA7800D6A598 /* RLPhotoPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLPhotoPickerViewController.xib; sourceTree = "<group>"; };
+		EDCDAD381E73AA7800D6A598 /* RLPhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLPhotoPickerViewController.m; sourceTree = "<group>"; };
+		EDCDAD391E73AA7800D6A598 /* RLPhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLPhotoPickerViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +84,7 @@
 		ED4A82B81D2616E400B14886 /* RLPhotoKitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				ED4A82E31D26657500B14886 /* manager */,
-				ED4A82E61D26657500B14886 /* model */,
-				ED4A82DD1D26657400B14886 /* browser */,
-				ED4A82E91D26657500B14886 /* preview */,
+				EDCDAD0C1E73A06C00D6A598 /* app */,
 				ED4A82BC1D2616E400B14886 /* AppDelegate.h */,
 				ED4A82BD1D2616E400B14886 /* AppDelegate.m */,
 				ED4A82C21D2616E400B14886 /* Main.storyboard */,
@@ -102,47 +104,53 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		ED4A82DD1D26657400B14886 /* browser */ = {
+		EDCDAD0C1E73A06C00D6A598 /* app */ = {
 			isa = PBXGroup;
 			children = (
-				ED4A82DE1D26657400B14886 /* RLImageCollectionViewCell.h */,
-				ED4A82DF1D26657400B14886 /* RLImageCollectionViewCell.m */,
-				ED4A82E01D26657500B14886 /* RLImageCollectionViewCell.xib */,
-				ED4A82E11D26657500B14886 /* RLBrowserViewController.h */,
-				ED4A82E21D26657500B14886 /* RLBrowserViewController.m */,
+				EDCDAD0D1E73A06C00D6A598 /* controllers */,
+				EDCDAD111E73A06C00D6A598 /* model */,
+				EDCDAD161E73A06C00D6A598 /* views */,
 			);
-			path = browser;
+			path = app;
 			sourceTree = "<group>";
 		};
-		ED4A82E31D26657500B14886 /* manager */ = {
+		EDCDAD0D1E73A06C00D6A598 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				ED4A82E41D26657500B14886 /* RLAssetManager.h */,
-				ED4A82E51D26657500B14886 /* RLAssetManager.m */,
+				EDCDAD391E73AA7800D6A598 /* RLPhotoPickerViewController.h */,
+				EDCDAD381E73AA7800D6A598 /* RLPhotoPickerViewController.m */,
+				EDCDAD371E73AA7800D6A598 /* RLPhotoPickerViewController.xib */,
 			);
-			path = manager;
+			path = controllers;
 			sourceTree = "<group>";
 		};
-		ED4A82E61D26657500B14886 /* model */ = {
+		EDCDAD111E73A06C00D6A598 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				ED4A82E71D26657500B14886 /* RLCommonAsset.h */,
-				ED4A82E81D26657500B14886 /* RLCommonAsset.m */,
+				EDCDAD121E73A06C00D6A598 /* RLAssetManager.h */,
+				EDCDAD131E73A06C00D6A598 /* RLAssetManager.m */,
+				EDCDAD141E73A06C00D6A598 /* RLCommonAsset.h */,
+				EDCDAD151E73A06C00D6A598 /* RLCommonAsset.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
 		};
-		ED4A82E91D26657500B14886 /* preview */ = {
+		EDCDAD161E73A06C00D6A598 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				ED4A82EA1D26657500B14886 /* TPPhotoPreviewCollectionViewCell.h */,
-				ED4A82EB1D26657500B14886 /* TPPhotoPreviewCollectionViewCell.m */,
-				ED4A82EC1D26657500B14886 /* TPPhotoPreviewCollectionViewCell.xib */,
-				ED4A82ED1D26657500B14886 /* TPPhotoPreviewViewController.h */,
-				ED4A82EE1D26657500B14886 /* TPPhotoPreviewViewController.m */,
-				ED4A82FB1D267AB700B14886 /* TPPhotoPreviewViewController.xib */,
+				EDCDAD171E73A06C00D6A598 /* RLAlbumListTableViewCell.h */,
+				EDCDAD181E73A06C00D6A598 /* RLAlbumListTableViewCell.m */,
+				EDCDAD191E73A06C00D6A598 /* RLAlbumListTableViewCell.xib */,
+				EDCDAD1A1E73A06C00D6A598 /* RLAlbumSelectionView.h */,
+				EDCDAD1B1E73A06C00D6A598 /* RLAlbumSelectionView.m */,
+				EDCDAD1C1E73A06C00D6A598 /* RLAlbumSelectionView.xib */,
+				EDCDAD1D1E73A06C00D6A598 /* RLAlbumsListView.h */,
+				EDCDAD1E1E73A06C00D6A598 /* RLAlbumsListView.m */,
+				EDCDAD1F1E73A06C00D6A598 /* RLImageCollectionViewCell.h */,
+				EDCDAD201E73A06C00D6A598 /* RLImageCollectionViewCell.m */,
+				EDCDAD211E73A06C00D6A598 /* RLImageCollectionViewCell.xib */,
 			);
-			path = preview;
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,12 +210,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED4A82FD1D267AB700B14886 /* TPPhotoPreviewViewController.xib in Resources */,
 				ED4A82C91D2616E400B14886 /* LaunchScreen.storyboard in Resources */,
+				EDCDAD271E73A06C00D6A598 /* RLAlbumListTableViewCell.xib in Resources */,
 				ED4A82C61D2616E400B14886 /* Assets.xcassets in Resources */,
-				ED4A82F11D26657500B14886 /* RLImageCollectionViewCell.xib in Resources */,
+				EDCDAD291E73A06C00D6A598 /* RLAlbumSelectionView.xib in Resources */,
 				ED4A82C41D2616E400B14886 /* Main.storyboard in Resources */,
-				ED4A82F61D26657500B14886 /* TPPhotoPreviewCollectionViewCell.xib in Resources */,
+				EDCDAD3A1E73AA7800D6A598 /* RLPhotoPickerViewController.xib in Resources */,
+				EDCDAD2C1E73A06C00D6A598 /* RLImageCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,14 +227,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED4A82F71D26657500B14886 /* TPPhotoPreviewViewController.m in Sources */,
-				ED4A82F01D26657500B14886 /* RLImageCollectionViewCell.m in Sources */,
+				EDCDAD281E73A06C00D6A598 /* RLAlbumSelectionView.m in Sources */,
+				EDCDAD241E73A06C00D6A598 /* RLAssetManager.m in Sources */,
+				EDCDAD251E73A06C00D6A598 /* RLCommonAsset.m in Sources */,
 				ED4A82BE1D2616E400B14886 /* AppDelegate.m in Sources */,
-				ED4A82F21D26657500B14886 /* RLBrowserViewController.m in Sources */,
-				ED4A82F41D26657500B14886 /* RLCommonAsset.m in Sources */,
-				ED4A82F51D26657500B14886 /* TPPhotoPreviewCollectionViewCell.m in Sources */,
-				ED4A82F31D26657500B14886 /* RLAssetManager.m in Sources */,
 				ED4A82BB1D2616E400B14886 /* main.m in Sources */,
+				EDCDAD3B1E73AA7800D6A598 /* RLPhotoPickerViewController.m in Sources */,
+				EDCDAD2B1E73A06C00D6A598 /* RLImageCollectionViewCell.m in Sources */,
+				EDCDAD2A1E73A06C00D6A598 /* RLAlbumsListView.m in Sources */,
+				EDCDAD261E73A06C00D6A598 /* RLAlbumListTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +349,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: wenjie lu (MGB3JZ7BR8)";
 				INFOPLIST_FILE = RLPhotoKitDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hk.ganguo.photokitdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,7 +363,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: wenjie lu (MGB3JZ7BR8)";
 				INFOPLIST_FILE = RLPhotoKitDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hk.ganguo.photokitdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

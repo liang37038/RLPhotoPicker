@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "RLPhotoPickerViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    RLPhotoPickerViewController *photoPicker = [[RLPhotoPickerViewController alloc]initWithNibName:NSStringFromClass([RLPhotoPickerViewController class]) bundle:[NSBundle mainBundle]];
+    
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:photoPicker];
+    
+    self.window.rootViewController = nav;
     return YES;
 }
 

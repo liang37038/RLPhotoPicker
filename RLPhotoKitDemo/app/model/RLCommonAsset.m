@@ -24,22 +24,71 @@
     PHAsset *_phAsset;
     ALAsset *_alAsset;
     ALAssetRepresentation *_alAssetRepresentation;
+    
+    NSURL   *_imageURL;
+}
+
+- (instancetype)init{
+    if (self = [super init]) {
+        _assetType = AssetTypeNone;
+    }
+    return self;
+}
+
+- (instancetype)initWithResouce:(id)resource{
+    if (self = [self init]) {
+        _resource = resource;
+        if ([resource isKindOfClass:[ALAsset class]]) {
+            return [self initWithALAsset:resource];
+        }else if([resource isKindOfClass:[PHAsset class]]){
+            return [self initWithPHAsset:resource];
+        }else if([resource isKindOfClass:[NSURL class]]){
+            return [self initWithImageURL:resource];
+        }else if([resource isKindOfClass:[UIImage class]]){
+            return [self initWithImage:resource];
+        }
+    }
+    return self;
 }
 
 - (instancetype)initWithALAsset:(ALAsset *)alAsset{
-    if (self = [super init]) {
+    if (self = [self init]) {
         _alAsset = alAsset;
         _alAssetRepresentation = alAsset.defaultRepresentation;
+        _assetType = AssetTypeAsset;
     }
     return self;
 }
 
 - (instancetype)initWithPHAsset:(PHAsset *)phAsset{
-    if (self = [super init]) {
+    if (self = [self init]) {
         _phAsset = phAsset;
         _usePhotoKit = YES;
+        _assetType = AssetTypeAsset;
     }
     return self;
+}
+
+- (instancetype)initWithImageURL:(NSURL *)imageURL{
+    if (self = [self init]) {
+        _imageURL = imageURL;
+        _usePhotoKit = YES;
+        _assetType = AssetTypeURL;
+    }
+    return self;
+}
+
+- (instancetype)initWithImage:(UIImage *)image{
+    if (self = [self init]) {
+        _previewImage = image;
+        _usePhotoKit = YES;
+        _assetType = AssetTypeImage;
+    }
+    return self;
+}
+
+- (NSURL *)imageURL{
+    return _imageURL;
 }
 
 - (UIImage *)originImage {

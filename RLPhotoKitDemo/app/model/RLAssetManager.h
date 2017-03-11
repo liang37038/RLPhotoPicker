@@ -41,4 +41,12 @@ typedef void(^PhotoAssetsCallback)(NSArray<RLCommonAsset *> *assets);
  */
 - (void)requestAuthorization:(RLAuthorizationStatusResult)statusCallback;
 
+
+/**
+ 从某个collection中获取所有assets
+
+ @param collection
+ @return 
+ */
+- (NSArray<RLCommonAsset *> *)fetchAssetFromCollection:(PHAssetCollection *)collection;
 @end

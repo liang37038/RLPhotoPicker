@@ -15,8 +15,6 @@
     PHFetchResult       *_phAssetAllPhotos;
     PHAssetCollection   *_allPhotosCollection;
     BOOL                _usePhotoKit;
-    
-    NSArray<RLCommonAsset *> *_commonAssetsArray;
 }
 + (instancetype)shareInstance{
     static RLAssetManager *_shareInstance = nil;
@@ -94,28 +92,22 @@
 }
 
 - (void)fetchAllPhotoAssetswithCallback:(PhotoAssetsCallback)callback{
-    if (!_commonAssetsArray){
-        NSMutableArray *commonAssetsArray = [NSMutableArray array];
-        if (_usePhotoKit) {
-            PHFetchResult *phPhotoAssets = [self phAssetAllPhotos];
-            for (PHAsset *phAsset in phPhotoAssets){
-                RLCommonAsset *commonAsset = [[RLCommonAsset alloc]initWithPHAsset:phAsset];
+    NSMutableArray *commonAssetsArray = [NSMutableArray array];
+    if (_usePhotoKit) {
+        PHFetchResult *phPhotoAssets = [self phAssetAllPhotos];
+        for (PHAsset *phAsset in phPhotoAssets){
+            RLCommonAsset *commonAsset = [[RLCommonAsset alloc]initWithResouce:phAsset];
+            [commonAssetsArray addObject:commonAsset];
+        }
+        callback(commonAssetsArray);
+    }else{
+        [self alAssetAllPhotosWithCallback:^(NSArray *alPhotoAssets) {
+            for (ALAsset *alAsset in alPhotoAssets){
+                RLCommonAsset *commonAsset = [[RLCommonAsset alloc]initWithResouce:alAsset];
                 [commonAssetsArray addObject:commonAsset];
             }
-            _commonAssetsArray = commonAssetsArray;
-            callback(_commonAssetsArray);
-        }else{
-            [self alAssetAllPhotosWithCallback:^(NSArray *alPhotoAssets) {
-                for (ALAsset *alAsset in alPhotoAssets){
-                    RLCommonAsset *commonAsset = [[RLCommonAsset alloc]initWithALAsset:alAsset];
-                    [commonAssetsArray addObject:commonAsset];
-                }
-                _commonAssetsArray = commonAssetsArray;
-                callback(_commonAssetsArray);
-            }];
-        }
-    }else{
-        callback(_commonAssetsArray);
+            callback(commonAssetsArray);
+        }];
     }
 }
 
@@ -152,15 +144,27 @@
                                                                       failureBlock:assetGroupEnumberatorFailure];
         }
     });
+    
+}
 
+- (NSArray<RLCommonAsset *> *)fetchAssetFromCollection:(PHAssetCollection *)collection{
+    NSMutableArray<RLCommonAsset *> *commonAssetsArray = [NSMutableArray new];
+    PHFetchOptions *assetOptions = [[PHFetchOptions alloc] init];
+    assetOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+    assetOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %ld", PHAssetMediaTypeImage];
+    PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:collection options:assetOptions];
+    for (PHAsset *phAsset in fetchResult){
+        RLCommonAsset *commonAsset = [[RLCommonAsset alloc]initWithResouce:phAsset];
+        [commonAssetsArray addObject:commonAsset];
+    }
+    return commonAssetsArray;
 }
 
 - (PHFetchResult *)phAssetAllPhotos{
-    if (!_phAssetAllPhotos) {
-        PHFetchOptions *assetOptions = [[PHFetchOptions alloc] init];
-        assetOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %ld", PHAssetMediaTypeImage];
-        _phAssetAllPhotos = [PHAsset fetchAssetsInAssetCollection:[self allPhotosCollection] options:assetOptions];
-    }
+    PHFetchOptions *assetOptions = [[PHFetchOptions alloc] init];
+    assetOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+    assetOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %ld", PHAssetMediaTypeImage];
+    _phAssetAllPhotos = [PHAsset fetchAssetsInAssetCollection:[self allPhotosCollection] options:assetOptions];
     return _phAssetAllPhotos;
 }
 
