@@ -1,4 +1,4 @@
-##PhotoKit
+#PhotoKit
 
 **How to use**
 
@@ -20,5 +20,9 @@
 
 ![](https://media.giphy.com/media/3oKIPaJ0Zw8neiTnhu/source.gif)
 
+**Todo**
+
+* [ ] 增加图片大图预览
+* [ ] 修复bugs
 
 
